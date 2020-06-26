@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class EmployeeController {
@@ -25,5 +26,10 @@ public class EmployeeController {
     @GetMapping(value="/getemp/{id}")
     public Employee getEmp(@PathVariable Integer id){
         return employeeDao.getEmp(id);
+    }
+
+    @GetMapping(value="/getdata")
+    public List<Map<String,Object>> getData(){
+        return employeeDao.getEmpDeptList();
     }
 }
