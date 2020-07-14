@@ -35,6 +35,7 @@ public class EmployeeDao implements EmployeeRepository {
 
     @Override
     public Employee getEmp(Integer id) {
+        System.out.println("In GetEmp Method");
         String sql="select * from employee where id=?";
         Employee e= (Employee) jdbcTemplate.queryForObject(sql,new Object[]{id},
                 new BeanPropertyRowMapper(Employee.class));
